@@ -29,6 +29,11 @@ RUN yum makecache fast \
 RUN ansible-galaxy install\
     v0rts.java
 
+RUN mkdir /tmp/ansible
+WORKDIR /tmp/ansible
+ADD java.yml /tmp/ansible/java.yml
+RUN ansible-playbook -i localhost, java.yml
+
 # Disable requiretty.
 RUN sed -i -e 's/^\(Defaults\s*requiretty\)/#--- \1/'  /etc/sudoers
 
