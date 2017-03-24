@@ -1,7 +1,6 @@
 - hosts: localhost
   connection: local
   roles:
-    - role: v0rts.java
-      java_packages:
-        - java-1.8.0-openjdk
+    - role: weldpua2008.java
+      oraclejdk_version: 8
 

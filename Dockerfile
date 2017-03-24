@@ -27,7 +27,7 @@ RUN yum makecache fast \
  && yum clean all
 
 RUN ansible-galaxy install\
-    v0rts.java
+    weldpua2008.java
 
 RUN mkdir /tmp/ansible
 WORKDIR /tmp/ansible
@@ -46,7 +46,7 @@ CMD ["/usr/sbin/init"]
 # Configuration variables.
 ENV JIRA_HOME     /var/atlassian/jira
 ENV JIRA_INSTALL  /opt/atlassian/jira
-ENV JIRA_VERSION  6.4.12
+ENV JIRA_VERSION  7.3.0
 
 # Install Atlassian JIRA and helper tools and setup initial home
 # directory structure.
@@ -56,7 +56,7 @@ RUN set -x \
     && chmod -R 700            "${JIRA_HOME}" \
     && chown -R daemon:daemon  "${JIRA_HOME}" \
     && mkdir -p                "${JIRA_INSTALL}/conf/Catalina" \
-    && curl -Ls                "https://www.atlassian.com/software/jira/downloads/binary/atlassian-jira-${JIRA_VERSION}.tar.gz" | tar -xz --directory "${JIRA_INSTALL}" --strip-components=1 --no-same-owner \
+    && curl -Ls                "https://www.atlassian.com/software/jira/downloads/binary/atlassian-jira-core-${JIRA_VERSION}.tar.gz" | tar -xz --directory "${JIRA_INSTALL}" --strip-components=1 --no-same-owner \
     && chmod -R 700            "${JIRA_INSTALL}/conf" \
     && chmod -R 700            "${JIRA_INSTALL}/logs" \
     && chmod -R 700            "${JIRA_INSTALL}/temp" \
