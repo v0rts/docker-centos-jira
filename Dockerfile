@@ -27,7 +27,7 @@ RUN yum makecache fast \
  && yum clean all
 
 RUN ansible-galaxy install\
-    weldpua2008.java
+    v0rts.java
 
 RUN mkdir /tmp/ansible
 WORKDIR /tmp/ansible
