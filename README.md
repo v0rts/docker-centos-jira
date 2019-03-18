@@ -19,7 +19,8 @@ This container is built with any commit to the `master` branch of this repo. If 
   1. [Install Docker](https://docs.docker.com/engine/installation/).
   2. Pull this image from Docker Hub: `docker pull v0rts/docker-centos-jira:latest` (or use the tag you built earlier, e.g. `centos-jira`).
   3. Run a container from the image: `docker run -d -p 8080:8080 centos-jira`
-  3. Attach to container: `docker exec -t -i container_id /bin/bash`
+  4. Connect to the Jira instance `https://localhost:8080`
+  5. Attach to container via shell: `docker exec -t -i container_id /bin/bash`
 
 ## Notes
 
