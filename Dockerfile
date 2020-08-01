@@ -1,6 +1,11 @@
 FROM centos:7
 MAINTAINER Chad Sailer
+
+# Configuration variables.
 ENV container=docker
+ENV JIRA_HOME     /var/atlassian/jira
+ENV JIRA_INSTALL  /opt/atlassian/jira
+ENV JIRA_VERSION  8.8.1
 
 # Install systemd -- See https://hub.docker.com/_/centos/
 RUN yum -y update; yum clean all; \
@@ -43,10 +48,6 @@ RUN echo -e '[local]\nlocalhost ansible_connection=local' > /etc/ansible/hosts
 VOLUME ["/sys/fs/cgroup"]
 CMD ["/usr/sbin/init"]
 
-# Configuration variables.
-ENV JIRA_HOME     /var/atlassian/jira
-ENV JIRA_INSTALL  /opt/atlassian/jira
-ENV JIRA_VERSION  7.13.1
 
 # Install Atlassian JIRA and helper tools and setup initial home
 # directory structure.
