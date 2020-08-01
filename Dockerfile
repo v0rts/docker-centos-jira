@@ -1,14 +1,14 @@
-FROM centos:7
+FROM centos:8
 MAINTAINER Chad Sailer
 
 # Configuration variables.
 ENV container=docker
 ENV JIRA_HOME     /var/atlassian/jira
 ENV JIRA_INSTALL  /opt/atlassian/jira
-ENV JIRA_VERSION  8.8.1
+ENV JIRA_VERSION  8.11.0
 
 # Install systemd -- See https://hub.docker.com/_/centos/
-RUN yum -y update; yum clean all; \
+RUN dnf -y update; dnf clean all; \
 (cd /lib/systemd/system/sysinit.target.wants/; for i in *; do [ $i == systemd-tmpfiles-setup.service ] || rm -f $i; done); \
 rm -f /lib/systemd/system/multi-user.target.wants/*;\
 rm -f /etc/systemd/system/*.wants/*;\
@@ -19,17 +19,16 @@ rm -f /lib/systemd/system/basic.target.wants/*;\
 rm -f /lib/systemd/system/anaconda.target.wants/*;
 
 # Install Ansible and other requirements.
-RUN yum makecache fast \
- && yum -y install deltarpm epel-release initscripts \
- && yum -y update \
- && yum -y install \
+RUN dnf -y install epel-release initscripts \
+ && dnf -y update \
+ && dnf -y install \
       ansible \
       sudo \
       which \
       zip \
       unzip \
-      python-pip \
- && yum clean all
+      python2-pip \
+ && dnf clean all
 
 RUN ansible-galaxy install\
     v0rts.java
