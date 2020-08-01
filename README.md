@@ -1,10 +1,10 @@
-# CentOS 7 Jira Docker Container
+# CentOS Jira Docker Container
 
 [![Docker Automated build](https://img.shields.io/docker/automated/v0rts/docker-centos-jira.svg?maxAge=2592000)](https://hub.docker.com/r/v0rts/docker-centos-jira/)
 [![Docker Automated build](https://img.shields.io/docker/pulls/v0rts/docker-centos-jira.svg?maxAge=2792000)](https://hub.docker.com/r/v0rts/docker-centos-jira/)
 [![Docker Automated build](https://img.shields.io/docker/stars/v0rts/docker-centos-jira.svg?maxAge=2792000)](https://hub.docker.com/r/v0rts/docker-centos-jira/)
 
-Docker CentOS 7 Jira Container
+Docker CentOS Jira Container
 
 ## How to Build
 
